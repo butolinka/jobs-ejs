@@ -19,6 +19,6 @@ router.post("/", (req, res) => {
   }
 
   res.redirect("/secretWord");
-});
+}); 
 
 module.exports = router;

@@ -1,0 +1,30 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+
+<h1><%= job ? 'Edit Job' : 'Add New Job' %></h1>
+
+<form method="POST" action="<%= job ? '/jobs/update/' + job._id : '/jobs' %>">
+  <input type="hidden" name="_csrf" value="<%= _csrf %>">
+  <div>
+    <label for="company">Company:</label>
+    <input type="text" name="company" value="<%= job ? job.company : '' %>" required>
+  </div>
+
+  <div>
+    <label for="position">Position:</label>
+    <input type="text" name="position" value="<%= job ? job.position : '' %>" required>
+  </div>
+  <!-- <div>
+    <label for="title">Title:</label>
+    <input type="text" name="title" value="<%= job ? job.title : '' %>" required>
+  </div> -->
+  <div>
+    <label for="description">Description:</label>
+    <textarea name="description" required><%= job ? job.description : '' %></textarea>
+  </div>
+  <button type="submit"><%= job ? 'Update' : 'Create' %> Job</button>
+</form>
+
+<a href="/jobs">Cancel</a>
+
+<%- include('partials/footer') %>
