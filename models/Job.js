@@ -1,4 +1,4 @@
-const { required } = require('joi');
+//const { required } = require('joi');
 const mongoose = require('mongoose');
 
 const JobSchema = new mongoose.Schema({
@@ -11,6 +11,11 @@ const JobSchema = new mongoose.Schema({
         type: String,
         required: [true, "Please provide position"],
         maxlength:150
+    },
+    description: {
+        type: String, 
+        required: [true, "Please provide a description"],
+        maxlength: 500  
     },
     status:{
         type: String,
